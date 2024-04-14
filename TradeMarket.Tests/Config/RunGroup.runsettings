@@ -1,0 +1,14 @@
+<RunSettings>
+    <RunConfiguration>
+        <TargetFrameworkVersion>net6.0</TargetFrameworkVersion>
+    </RunConfiguration>
+    <NUnit>
+        <TestAssemblyPaths>\bin\Debug\net6.0\TradeMarket.Tests.dll</TestAssemblyPaths>
+        <test-fixture>
+            <include category="GetTest" />
+            <exclude category="RemoveTest" />
+			<exclude category="AddTest" />
+			<exclude category="UpdateTest" />
+		</test-fixture>
+    </NUnit>
+</RunSettings>

@@ -16,6 +16,7 @@ namespace TradeMarket.Tests.BusinessTests
 {
     public class ProductServiceTests
     {
+        [Category("GetTest")]
         [Test]
         public async Task ProductService_GetAll_ReturnsAllProducts()
         {
@@ -37,6 +38,7 @@ namespace TradeMarket.Tests.BusinessTests
                 options.Excluding(x => x.ReceiptDetailIds));
         }
 
+        [Category("GetTest")]
         [Test]
         public async Task ProductService_GetAllProductCategoriesAsync_ReturnsAllCategories()
         {
@@ -57,6 +59,7 @@ namespace TradeMarket.Tests.BusinessTests
             actual.Should().BeEquivalentTo(expected, options => options.Excluding(x => x.ProductIds));
         }
 
+        [Category("GetTest")]
         [TestCase(1)]
         [TestCase(2)]
         public async Task ProductService_GetById_ReturnsProductModel(int id)
@@ -78,7 +81,7 @@ namespace TradeMarket.Tests.BusinessTests
             actual.Should().BeEquivalentTo(expected, options => options.Excluding(x => x.ReceiptDetailIds));
         }
 
-
+        [Category("AddTest")]
         [Test]
         public async Task ProductService_AddAsync_AddsProduct()
         {
@@ -97,6 +100,7 @@ namespace TradeMarket.Tests.BusinessTests
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
+        [Category("AddTest")]
         [Test]
         public async Task ProductService_AddCategoryAsync_AddsCategory()
         {
@@ -116,6 +120,7 @@ namespace TradeMarket.Tests.BusinessTests
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
+        [Category("AddTest")]
         [Test]
         public async Task ProductService_AddAsync_ThrowsMarketExceptionWithEmptyProductName()
         {
@@ -133,6 +138,7 @@ namespace TradeMarket.Tests.BusinessTests
             await act.Should().ThrowAsync<MarketException>();
         }
 
+        [Category("AddTest")]
         [TestCase(-5000.50)]
         [TestCase(-500000)]
         [TestCase(-0.0001)]
@@ -152,7 +158,7 @@ namespace TradeMarket.Tests.BusinessTests
             await act.Should().ThrowAsync<MarketException>();
         }
 
-
+        [Category("AddTest")]
         [Test]
         public async Task ProductService_AddCategoryAsync_ThrowsMarketExceptionWithEmptyCategoryName()
         {
@@ -170,6 +176,7 @@ namespace TradeMarket.Tests.BusinessTests
             await act.Should().ThrowAsync<MarketException>();
         }
 
+        [Category("DeleteTest")]
         [TestCase(1)]
         [TestCase(2)]
         public async Task ProductService_DeleteAsync_DeletesProduct(int id)
@@ -187,6 +194,7 @@ namespace TradeMarket.Tests.BusinessTests
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
+        [Category("DeleteTest")]
         [TestCase(1)]
         [TestCase(2)]
         public async Task ProductService_RemoveCategoryAsync_DeletesCategory(int id)
@@ -204,6 +212,7 @@ namespace TradeMarket.Tests.BusinessTests
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
+        [Category("UpdateTest")]
         [Test]
         public async Task ProductService_UpdateAsync_UpdatesProduct()
         {
@@ -222,6 +231,7 @@ namespace TradeMarket.Tests.BusinessTests
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
+        [Category("UpdateTest")]
         [Test]
         public async Task ProductService_UpdateAsync_ThrowsMarketExceptionsWithEmptyName()
         {
@@ -239,6 +249,7 @@ namespace TradeMarket.Tests.BusinessTests
             await act.Should().ThrowAsync<MarketException>();
         }
 
+        [Category("UpdateTest")]
         [Test]
         public async Task ProductService_UpdateCategoryAsync_UpdatesCategory()
         {
@@ -257,6 +268,7 @@ namespace TradeMarket.Tests.BusinessTests
             mockUnitOfWork.Verify(x => x.SaveAsync(), Times.Once);
         }
 
+        [Category("UpdateTest")]
         [Test]
         public async Task ProductService_UpdateCategory_ThrowsMarketExceptionsWithEmptyName()
         {

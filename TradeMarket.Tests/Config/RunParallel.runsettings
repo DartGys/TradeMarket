@@ -1,0 +1,10 @@
+<RunSettings>
+    <RunConfiguration>
+        <TargetFrameworkVersion>net6.0</TargetFrameworkVersion>
+    </RunConfiguration>
+    <NUnit>
+		<TestAssemblyPaths>\bin\Debug\net6.0\TradeMarket.Tests.dll</TestAssemblyPaths>
+		<ParallelizableTests>true</ParallelizableTests>
+        <Workers>4</Workers>
+    </NUnit>
+</RunSettings>

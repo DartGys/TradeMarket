@@ -23,4 +23,8 @@
     <ProjectReference Include="..\WebApi\WebApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Config\" />
+  </ItemGroup>
+
 </Project>
